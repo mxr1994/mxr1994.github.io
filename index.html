@@ -2,6 +2,10 @@
 <html>
 <head>
   <meta charset="utf-8">
+  <meta name="baidu-site-verification" content="L6Lm9d5Crl"/>
+  
+  
+  
   
   <title>Chris</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -19,7 +23,7 @@
     <link rel="icon" href="/img/favicon.png">
   
   
-      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
   
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
@@ -36,7 +40,6 @@
     <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
   <script>
       var yiliaConfig = {
-          rootUrl: '/',
           fancybox: true,
           animate: true,
           isHome: true,
@@ -54,19 +57,71 @@
     <div class="overlay"></div>
 <div class="intrude-less">
     <header id="header" class="inner">
+        
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
         <a href="/" class="profilepic">
             
-            <img lazy-src="/img/head.jpg" class="js-avatar">
+            <img lazy-src="/img/avatar.png" class="js-avatar">
             
         </a>
-
         <hgroup>
-          <h1 class="header-author"><a href="/" title="Hi Mate">Chris</a></h1>
+          <h1 class="header-author"><a href="/">Chris</a></h1>
         </hgroup>
-
         
         <p class="header-subtitle">永远年轻，永远热泪盈眶。</p>
         
+        
+            <form>
+                <input type="text" class="st-default-search-input search" id="local-search-input" placeholder="搜索一下" autocomplete="off">
+            </form>
+            <div id="local-search-result"></div>
+        
+        
+            <script type="text/javascript">
+                (function() {
+                    'use strict';
+                    function getMatchData(keyword, data) {
+                        var matchData = [];
+                        for(var i =0;i<data.length;i++){
+                            if(data[i].title.toLowerCase().indexOf(keyword)>=0) 
+                                matchData.push(data[i])
+                        }
+                        return matchData;
+                    }
+                    var $input = $('#local-search-input');
+                    var $resultContent = $('#local-search-result');
+                    $input.keyup(function(){
+                        $.ajax({
+                            url: '/search.json',
+                            dataType: "json",
+                            success: function( json ) {
+                                var str='<ul class=\"search-result-list\">';                
+                                var keyword = $input.val().trim().toLowerCase();
+                                $resultContent.innerHTML = "";
+                                if ($input.val().trim().length <= 0) {
+                                    $resultContent.empty();
+                                    $('#switch-area').show();
+                                    return;
+                                }
+                                var results = getMatchData(keyword, json);
+                                if(results.length === 0){
+                                    $resultContent.empty();
+                                    $('#switch-area').show();
+                                    return;
+                                } 
+                                for(var i =0; i<results.length; i++){
+                                    str += "<li><a href='"+ results[i].url +"' class='search-result-title'>"+ results[i].title +"</a></li>";
+                                }
+                                str += "</ul>";
+                                $resultContent.empty();
+                                $resultContent.append(str);
+                                $('#switch-area').hide();
+                            }
+                        });
+                    });
+                })();
+            </script>
         
         
             <div id="switch-btn" class="switch-btn">
@@ -92,7 +147,6 @@
                         </div>
                         
                     </div>
-                    
                 </div>
                 <div class="tips-box hide">
                     <div class="tips-arrow"></div>
@@ -109,36 +163,30 @@
                 </div>
             </div>
         
-
         <div id="switch-area" class="switch-area">
             <div class="switch-wrap">
                 <section class="switch-part switch-part1">
                     <nav class="header-menu">
                         <ul>
                         
-                            <li><a href="/#">博客首页</a></li>
+                            <li><a  href="/archives/">所有文章</a></li>
                         
-                            <li><a href="/works">作品展示</a></li>
-                        
-                            <li><a href="/about">留言打卡</a></li>
-                        
-                            <li><a href="/FrontEndGuide">前端导航</a></li>
+                            <li><a  href="/about/">关于我</a></li>
                         
                         </ul>
                     </nav>
                     <nav class="header-nav">
                         <ul class="social">
                             
-                                <a class="fl mail" target="_blank" href="mailto:mxr1994@outlook.com" title="mail">mail</a>
+                                <a class="fl mail"  target="_blank" href="mailto:mxr1994@outlook.com" title="mail">mail</a>
                             
-                                <a class="fl github" target="_blank" href="https://github.com/mxr1994" title="github">github</a>
+                                <a class="fl github"  target="_blank" href="https://github.com/mxr1994" title="github">github</a>
                             
-                                <a class="fl weibo" target="_blank" href="https://weibo.com/mxr1994?from=feed&loc=at&nick=毕加rain&is_hot=1" title="weibo">weibo</a>
+                                <a class="fl weibo"  target="_blank" href="http://weibo.com/mxr1994" title="weibo">weibo</a>
                             
                         </ul>
                     </nav>
                 </section>
-                
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
@@ -147,43 +195,44 @@
                 </section>
                 
                 
-                
                 <section class="switch-part switch-part3">
                     <div id="js-friends">
                     
-                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://luuman.github.io/">name</a>
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="https://www.freeelk.com/">麋鹿</a>
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="https://fairyll.github.io/">fairyll</a>
                     
                     </div>
                 </section>
                 
-
                 
                 
                 <section class="switch-part switch-part4">
                 
-                    <div id="js-aboutme">纯海迷、爱运动、爱交友、爱旅行、喜欢接触新鲜事物、迎接新的挑战，更爱游离于错综复杂的编码与逻辑中</div>
+                    <div id="js-aboutme">我爱我们倒霉的工作，也爱这个千疮百孔的世界。</div>
                 </section>
                 
             </div>
         </div>
-    </header>                
+    </header>
 </div>
+
     </div>
     <div class="mid-col">
       <nav id="mobile-nav">
       <div class="overlay">
           <div class="slider-trigger"></div>
-          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">Chris</a></h1>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Chris</a></h1>
       </div>
     <div class="intrude-less">
         <header id="header" class="inner">
             <a href="/" class="profilepic">
                 
-                    <img lazy-src="/img/head.jpg" class="js-avatar">
+                    <img lazy-src="/img/avatar.png" class="js-avatar">
                 
             </a>
             <hgroup>
-              <h1 class="header-author"><a href="/" title="Me">Chris</a></h1>
+              <h1 class="header-author"><a href="/" title="回到主页">Chris</a></h1>
             </hgroup>
             
             <p class="header-subtitle">永远年轻，永远热泪盈眶。</p>
@@ -191,13 +240,9 @@
             <nav class="header-menu">
                 <ul>
                 
-                    <li><a href="/#">博客首页</a></li>
+                    <li><a href="/archives/">所有文章</a></li>
                 
-                    <li><a href="/works">作品展示</a></li>
-                
-                    <li><a href="/about">留言打卡</a></li>
-                
-                    <li><a href="/FrontEndGuide">前端导航</a></li>
+                    <li><a href="/about/">关于我</a></li>
                 
                 <div class="clearfix"></div>
                 </ul>
@@ -209,11 +254,11 @@
                     
                         <a class="github" target="_blank" href="https://github.com/mxr1994" title="github">github</a>
                     
-                        <a class="weibo" target="_blank" href="https://weibo.com/mxr1994?from=feed&loc=at&nick=毕加rain&is_hot=1" title="weibo">weibo</a>
+                        <a class="weibo" target="_blank" href="http://weibo.com/mxr1994" title="weibo">weibo</a>
                     
                 </div>
             </nav>
-        </header>                
+        </header>
     </div>
 </nav>
       <div class="body-wrap">
@@ -221,9 +266,10 @@
     <article id="post-Vue初学笔记" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/09/24/Vue初学笔记/" class="article-date">
+      <a  href="/2018/09/24/Vue初学笔记/" class="article-date">
       <time datetime="2018-09-24T12:22:15.000Z" itemprop="datePublished">2018-09-24</time>
 </a>
+
     </div>
   
   <div class="article-inner">
@@ -235,9 +281,10 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/24/Vue初学笔记/">Vue初学笔记</a>
+      <a  class="article-title" href="/2018/09/24/Vue初学笔记/">Vue初学笔记</a>
     </h1>
   
+
 
       </header>
       
@@ -248,7 +295,6 @@
               <p><font size="5">什么是Vue.js</font> <excerpt in="" index="" |="" 首页摘要=""> </excerpt></p>
 <p>Vue.js 一个前端框架，是一套构建用户界面的框架，<strong>只关注视图层</strong>，它不仅易于上手，还便于与第三方库或既有项目整合。（Vue有配套的第三方库，可以整合起来做大型项目的开发）</p>
           
-      
       
     </div>
     
@@ -267,7 +313,7 @@
 
       
         <p class="article-more-link">
-          <a  href="/2018/09/24/Vue初学笔记/#more">大航海 >></a>
+          <a   href="/2018/09/24/Vue初学笔记/#more">查看更多 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -285,13 +331,16 @@
 
 
 
+
+
   
     <article id="post-重装系统后如何恢复Hexo博客" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/09/21/重装系统后如何恢复Hexo博客/" class="article-date">
+      <a  href="/2018/09/21/重装系统后如何恢复Hexo博客/" class="article-date">
       <time datetime="2018-09-21T03:15:30.000Z" itemprop="datePublished">2018-09-21</time>
 </a>
+
     </div>
   
   <div class="article-inner">
@@ -303,9 +352,10 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/21/重装系统后如何恢复Hexo博客/">重装系统后如何恢复Hexo博客</a>
+      <a  class="article-title" href="/2018/09/21/重装系统后如何恢复Hexo博客/">重装系统后如何恢复Hexo博客</a>
     </h1>
   
+
 
       </header>
       
@@ -318,7 +368,6 @@
 <p>电脑用久后，难免会重装系统，在重装系统的时候我们的博客该怎么办呢？这里就记录一下如何恢复。</p>
 <p>首先这篇文章的前提是保留了原有的博客文件夹，至于没有保留文件夹的方法，将在后续补上</p></excerpt>
           
-      
       
     </div>
     
@@ -337,7 +386,7 @@
 
       
         <p class="article-more-link">
-          <a  href="/2018/09/21/重装系统后如何恢复Hexo博客/#more">大航海 >></a>
+          <a   href="/2018/09/21/重装系统后如何恢复Hexo博客/#more">查看更多 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -346,6 +395,8 @@
   </div>
   
 </article>
+
+
 
 
 
@@ -359,9 +410,10 @@
     <article id="post-烟花" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/09/17/烟花/" class="article-date">
+      <a  href="/2018/09/17/烟花/" class="article-date">
       <time datetime="2018-09-16T17:24:42.000Z" itemprop="datePublished">2018-09-17</time>
 </a>
+
     </div>
   
   <div class="article-inner">
@@ -373,9 +425,10 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/17/烟花/">if 如果 烟花</a>
+      <a  class="article-title" href="/2018/09/17/烟花/">if 如果 烟花</a>
     </h1>
   
+
 
       </header>
       
@@ -387,7 +440,6 @@
 
 <p>如果…可惜没如果…。</p></excerpt>
           
-      
       
     </div>
     
@@ -406,7 +458,7 @@
 
       
         <p class="article-more-link">
-          <a  href="/2018/09/17/烟花/#more">大航海 >></a>
+          <a   href="/2018/09/17/烟花/#more">查看更多 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -415,6 +467,8 @@
   </div>
   
 </article>
+
+
 
 
 
@@ -428,9 +482,10 @@
     <article id="post-关于坚果pro2S" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/09/16/关于坚果pro2S/" class="article-date">
+      <a  href="/2018/09/16/关于坚果pro2S/" class="article-date">
       <time datetime="2018-09-16T03:47:07.000Z" itemprop="datePublished">2018-09-16</time>
 </a>
+
     </div>
   
   <div class="article-inner">
@@ -442,9 +497,10 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/16/关于坚果pro2S/">关于这篇文章</a>
+      <a  class="article-title" href="/2018/09/16/关于坚果pro2S/">关于这篇文章</a>
     </h1>
   
+
 
       </header>
       
@@ -457,7 +513,6 @@
 <p>通过干干净净地赚钱让人们相信干干净净的赚钱是可能的。通过实现理想让人们相信实现理想是可能的。通过改变世界让人们相信改变世界是可能的。即使是在中国。</p>
 </blockquote>
           
-      
       
     </div>
     
@@ -476,7 +531,7 @@
 
       
         <p class="article-more-link">
-          <a  href="/2018/09/16/关于坚果pro2S/#more">大航海 >></a>
+          <a   href="/2018/09/16/关于坚果pro2S/#more">查看更多 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -494,13 +549,16 @@
 
 
 
+
+
   
     <article id="post-struts2简介" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/09/10/struts2简介/" class="article-date">
+      <a  href="/2018/09/10/struts2简介/" class="article-date">
       <time datetime="2018-09-10T10:20:09.000Z" itemprop="datePublished">2018-09-10</time>
 </a>
+
     </div>
   
   <div class="article-inner">
@@ -512,9 +570,10 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/10/struts2简介/">struts2简介</a>
+      <a  class="article-title" href="/2018/09/10/struts2简介/">struts2简介</a>
     </h1>
   
+
 
       </header>
       
@@ -526,7 +585,6 @@
 
 <p>MVC框架原来比较流行的是struts1，和struts1一块儿的还有webwork。webwork技术上要比struts1要牛。但是由于struts1做的比较早，所以得到了大家伙儿的认可。所以用struts1的人还特别多。</p></excerpt>
           
-      
       
     </div>
     
@@ -545,7 +603,7 @@
 
       
         <p class="article-more-link">
-          <a  href="/2018/09/10/struts2简介/#more">大航海 >></a>
+          <a   href="/2018/09/10/struts2简介/#more">查看更多 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -563,13 +621,16 @@
 
 
 
+
+
   
     <article id="post-struct和typedef-struct" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/09/09/struct和typedef-struct/" class="article-date">
+      <a  href="/2018/09/09/struct和typedef-struct/" class="article-date">
       <time datetime="2018-09-08T17:57:21.000Z" itemprop="datePublished">2018-09-09</time>
 </a>
+
     </div>
   
   <div class="article-inner">
@@ -581,9 +642,10 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/09/struct和typedef-struct/">struct和typedef struct</a>
+      <a  class="article-title" href="/2018/09/09/struct和typedef-struct/">struct和typedef struct</a>
     </h1>
   
+
 
       </header>
       
@@ -595,7 +657,6 @@
 
 <p>关于struct和typedef struct 看完后彻底明白了</p></excerpt>
           
-      
       
     </div>
     
@@ -614,7 +675,7 @@
 
       
         <p class="article-more-link">
-          <a  href="/2018/09/09/struct和typedef-struct/#more">大航海 >></a>
+          <a   href="/2018/09/09/struct和typedef-struct/#more">查看更多 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -632,13 +693,16 @@
 
 
 
+
+
   
     <article id="post-Spring中名称空间p和c的使用" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/09/08/Spring中名称空间p和c的使用/" class="article-date">
+      <a  href="/2018/09/08/Spring中名称空间p和c的使用/" class="article-date">
       <time datetime="2018-09-08T07:33:00.000Z" itemprop="datePublished">2018-09-08</time>
 </a>
+
     </div>
   
   <div class="article-inner">
@@ -650,9 +714,10 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/08/Spring中名称空间p和c的使用/">Spring C/P 命名空间的使用和区别</a>
+      <a  class="article-title" href="/2018/09/08/Spring中名称空间p和c的使用/">Spring C/P 命名空间的使用和区别</a>
     </h1>
   
+
 
       </header>
       
@@ -667,7 +732,6 @@
 <p>使用p名称空间可以解决我们setter注入时<property>简化 </property></p>
 <p>使用c名称空间可以解决我们构造器注入时<constructor-arg>简化</constructor-arg></p>
           
-      
       
     </div>
     
@@ -686,7 +750,7 @@
 
       
         <p class="article-more-link">
-          <a  href="/2018/09/08/Spring中名称空间p和c的使用/#more">大航海 >></a>
+          <a   href="/2018/09/08/Spring中名称空间p和c的使用/#more">查看更多 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -704,13 +768,16 @@
 
 
 
+
+
   
     <article id="post-SQL语法顺序与解析顺序" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/09/05/SQL语法顺序与解析顺序/" class="article-date">
+      <a  href="/2018/09/05/SQL语法顺序与解析顺序/" class="article-date">
       <time datetime="2018-09-05T09:14:47.000Z" itemprop="datePublished">2018-09-05</time>
 </a>
+
     </div>
   
   <div class="article-inner">
@@ -722,9 +789,10 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/05/SQL语法顺序与解析顺序/">SQL语法顺序与解析顺序</a>
+      <a  class="article-title" href="/2018/09/05/SQL语法顺序与解析顺序/">SQL语法顺序与解析顺序</a>
     </h1>
   
+
 
       </header>
       
@@ -736,7 +804,6 @@
 
 <p>关于SQL的解析顺序，其实SQL的解析顺序和书写顺序是不一样的！！！</p></excerpt>
           
-      
       
     </div>
     
@@ -755,7 +822,7 @@
 
       
         <p class="article-more-link">
-          <a  href="/2018/09/05/SQL语法顺序与解析顺序/#more">大航海 >></a>
+          <a   href="/2018/09/05/SQL语法顺序与解析顺序/#more">查看更多 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -773,13 +840,16 @@
 
 
 
+
+
   
     <article id="post-你好，世界！" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/09/01/你好，世界！/" class="article-date">
+      <a  href="/2018/09/01/你好，世界！/" class="article-date">
       <time datetime="2018-09-01T11:48:50.000Z" itemprop="datePublished">2018-09-01</time>
 </a>
+
     </div>
   
   <div class="article-inner">
@@ -791,9 +861,10 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/01/你好，世界！/">你好，世界！</a>
+      <a  class="article-title" href="/2018/09/01/你好，世界！/">你好，世界！</a>
     </h1>
   
+
 
       </header>
       
@@ -801,9 +872,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>我爱我们倒霉的工作，也爱这个千疮百孔的世界。</p>
-
-      
+              <p>我爱我们倒霉的工作，也爱这个千疮百孔的世界。<excerpt in="" index="" |="" 首页摘要=""> </excerpt></p>
+          
       
     </div>
     
@@ -821,6 +891,10 @@
     </div>
 
       
+        <p class="article-more-link">
+          <a   href="/2018/09/01/你好，世界！/#more">查看更多 >></a>
+        </p>
+      
       <div class="clearfix"></div>
     </div>
     
@@ -836,13 +910,16 @@
 
 
 
+
+
   
     <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/09/01/hello-world/" class="article-date">
+      <a  href="/2018/09/01/hello-world/" class="article-date">
       <time datetime="2018-09-01T10:24:42.000Z" itemprop="datePublished">2018-09-01</time>
 </a>
+
     </div>
   
   <div class="article-inner">
@@ -854,9 +931,10 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/01/hello-world/">Hello World</a>
+      <a  class="article-title" href="/2018/09/01/hello-world/">Hello World</a>
     </h1>
   
+
 
       </header>
       
@@ -868,7 +946,6 @@
 
 <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p></excerpt>
           
-      
       
     </div>
     
@@ -887,7 +964,7 @@
 
       
         <p class="article-more-link">
-          <a  href="/2018/09/01/hello-world/#more">大航海 >></a>
+          <a   href="/2018/09/01/hello-world/#more">查看更多 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -905,8 +982,11 @@
 
 
 
+
+
   
   
+
 </div>
       <footer id="footer">
     <div class="outer">
@@ -915,14 +995,14 @@
                 &copy; 2018 Chris
             </div>
             <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">spfk</a> by luuman
+                <a href="http://hexo.io/" target="_blank">Hexo &nbsp;&nbsp;</a><a href="https://github.com/maochunguang" target="_blank">Blog</a> by tommy
             </div>
         </div>
         
             <div class="visit">
                 
                     <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" >海贼到访数: 
+                        <span id="site-visit" >极客到访数: 
                             <span id="busuanzi_value_site_uv"></span>
                         </span>
                     </span>
@@ -943,12 +1023,14 @@
 </footer>
 
     </div>
-    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
 <script src="/js/main.js"></script>
 
     <script>
         $(document).ready(function() {
-            var backgroundnum = 24;
+            var backgroundnum = 1;
             var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
             $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
             $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
@@ -956,6 +1038,30 @@
     </script>
 
 
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'xxxxx', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?xxxxxx";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
 
 
 
@@ -982,7 +1088,6 @@
             var title = a.attr('title');
             if (title == undefined || title == "") return;
             a.data('title', title).removeAttr('title').hover(
-
             function() {
                 var offset = a.offset();
                 $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
