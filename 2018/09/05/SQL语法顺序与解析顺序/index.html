@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>SQL语法顺序与解析顺序 | Chris</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="关于SQL的解析顺序，其实SQL的解析顺序和书写顺序是不一样的！！！">
+<meta name="keywords" content="SQL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SQL语法顺序与解析顺序">
+<meta property="og:url" content="http://yoursite.com/2018/09/05/SQL语法顺序与解析顺序/index.html">
+<meta property="og:site_name" content="Chris">
+<meta property="og:description" content="关于SQL的解析顺序，其实SQL的解析顺序和书写顺序是不一样的！！！">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:updated_time" content="2018-09-25T18:03:57.866Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SQL语法顺序与解析顺序">
+<meta name="twitter:description" content="关于SQL的解析顺序，其实SQL的解析顺序和书写顺序是不一样的！！！">
+  
+    <link rel="alternative" href="/atom.xml" title="Chris" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/head.jpg" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/" title="Hi Mate">Chris</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">永远年轻，永远热泪盈眶。</p>
+        
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/#">博客首页</a></li>
+                        
+                            <li><a href="/works">作品展示</a></li>
+                        
+                            <li><a href="/about">留言打卡</a></li>
+                        
+                            <li><a href="/FrontEndGuide">前端导航</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="mailto:mxr1994@outlook.com" title="mail">mail</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/mxr1994" title="github">github</a>
+                            
+                                <a class="fl weibo" target="_blank" href="https://weibo.com/mxr1994?from=feed&loc=at&nick=毕加rain&is_hot=1" title="weibo">weibo</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/C/" style="font-size: 10px;">C</a> <a href="/tags/C/" style="font-size: 10px;">C++</a> <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/Spring/" style="font-size: 15px;">Spring</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/struts1/" style="font-size: 10px;">struts1</a> <a href="/tags/struts2/" style="font-size: 10px;">struts2</a> <a href="/tags/webwork/" style="font-size: 10px;">webwork</a> <a href="/tags/前端/" style="font-size: 10px;">前端</a> <a href="/tags/博客折腾日记/" style="font-size: 10px;">博客折腾日记</a> <a href="/tags/随笔/" style="font-size: 20px;">随笔</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://luuman.github.io/">name</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">纯海迷、爱运动、爱交友、爱旅行、喜欢接触新鲜事物、迎接新的挑战，更爱游离于错综复杂的编码与逻辑中</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">Chris</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/head.jpg" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">Chris</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">永远年轻，永远热泪盈眶。</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/#">博客首页</a></li>
+                
+                    <li><a href="/works">作品展示</a></li>
+                
+                    <li><a href="/about">留言打卡</a></li>
+                
+                    <li><a href="/FrontEndGuide">前端导航</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="mailto:mxr1994@outlook.com" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/mxr1994" title="github">github</a>
+                    
+                        <a class="weibo" target="_blank" href="https://weibo.com/mxr1994?from=feed&loc=at&nick=毕加rain&is_hot=1" title="weibo">weibo</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-SQL语法顺序与解析顺序" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/09/05/SQL语法顺序与解析顺序/" class="article-date">
+      <time datetime="2018-09-05T09:14:47.000Z" itemprop="datePublished">2018-09-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      SQL语法顺序与解析顺序
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/SQL/">SQL</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL/">SQL</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <excerpt in="" index="" |="" 首页摘要=""> 
+
+<p>关于SQL的解析顺序，其实SQL的解析顺序和书写顺序是不一样的！！！</p>
+<a id="more"></a>
+<the rest="" of="" contents="" |="" 余下全文="">
+
+<h4 id="SQL：结构化查询语言"><a href="#SQL：结构化查询语言" class="headerlink" title="SQL：结构化查询语言"></a>SQL：结构化查询语言</h4><p>SQL是最重要的关系数据库操作语言，它是一种特殊目的的编程语言，是一种数据库查询和程序设计语言，用于存取数据以及查询、更新和管理关系数据库系统。</p>
+<p>SQL基本上独立于数据库本身、使用的机器、网络、操作系统。<br>SQL的影响已经超出数据库领域，得到其他领域的重视和采用，如人工智能领域的数据检索，第四代软件开发工具中嵌入SQL的语言等。</p>
+<p>有很多程序员都很抵触SQL，其实SQL语言是一整为数不多的声明性语言，只是它的运行方式完全不同于我们所熟知的命令行语言、面向对象的程序语言、甚至是函数语言。</p>
+<h4 id="SQL是一种声明式语言"><a href="#SQL是一种声明式语言" class="headerlink" title="SQL是一种声明式语言"></a>SQL是一种声明式语言</h4><p>首先我们应该记住这个概念“声明”，SQL语言是为计算机声明了一个你想从原始数据中获得什么样的结果的一个范例，而不是告诉计算机如何能够得到结果。</p>
+<p>SQL 语言声明的是结果集的属性，计算机会根据SQL 所声明的内容来从数据库中挑选出符合声明的数据，而不是像传统编程思维去指示计算机如何操作。</p>
+<p>类似于，简单粗暴的对电脑说，嘿，电脑，把你上个月存进去的所有销售记录给我调出来。电脑：上个月的记录有….</p>
+<pre><code>select * from pf_ckmx where rq &gt;= &apos;2016-12-23&apos; and rq &lt;= &apos;2017-01-22&apos;
+</code></pre><p>我们并不关心这些数据是怎么得来的，我们只是看看结果而已。</p>
+<p>为什么很多程序员都很抵触SQL呢，主要原因是：我们潜意识中的是按照命令式编程的思维方式思考问题的。就好像这样：“电脑，先执行这一步，再执行那一步，但是在那之前先检查一下是否满足条件 A 和条件 B ”。例如，用变量传参、使用循环语句、迭代、调用函数等等，都是这种命令式编程的思维惯式。而SQL恰恰没有按照这种命令式编程的思维方式来处理问题。</p>
+<h4 id="另外，最重要的是SQL的语法并不按照语法顺序执行的"><a href="#另外，最重要的是SQL的语法并不按照语法顺序执行的" class="headerlink" title="另外，最重要的是SQL的语法并不按照语法顺序执行的"></a>另外，最重要的是SQL的语法并不按照语法顺序执行的</h4><p>SQL语句有一个让大部分人都感到困惑的特性，就是：SQL语句的执行顺序跟其语句的语法顺序并不一致。SQL语句的语法顺序是：<br>​<br>    SELECT → FROM → WHERE → GROUP BY → HAVING → ORDER BY<br>为了方便理解，上面并没有把所有的 SQL 语法结构都列出来，但是已经足以说明 SQL 语句的语法顺序和其执行顺序完全不一样，就以上述语句为例，其执行顺序为：</p>
+<pre><code>FROM → WHERE → GROUP BY → HAVING → SELECT → ORDER BY
+</code></pre><p>可以发现：SQL的语法并是不按照语法顺序执行，这让我们习惯于命令式编程的思维惯式</p>
+<h4 id="关于SQL语句的执行顺序需要注意的地方"><a href="#关于SQL语句的执行顺序需要注意的地方" class="headerlink" title="关于SQL语句的执行顺序需要注意的地方"></a>关于SQL语句的执行顺序需要注意的地方</h4><ol>
+<li>FROM 才是 SQL 语句执行的第一步，并非 SELECT 。数据库在执行 SQL 语句的第一步是将数据从硬盘加载到数据缓冲区中，以便对这些数据进行操作。</li>
+</ol>
+<ol start="2">
+<li>FROM才是SQL语句执行的第一步，并非SELECT。数据库在执行SQL语句的第一步是将数据从硬盘加载到数据缓冲区中，以便对这些数据进行操作。</li>
+</ol>
+<ol start="3">
+<li>SELECT是在大部分语句执行了之后才执行的，严格的说是在FROM和GROUP BY之后执行的。理解这一点是非常重要的，这就是你不能在WHERE中使用在SELECT中设定别名的字段作为判断条件的原因。</li>
+</ol>
+<p>当然这一点并非所有的数据库对SQL语句使用相同的解析方式。如MySQL、PostgreSQL和SQLite</p>
+<h4 id="既然并不是所有的数据库都按照上述方式执行SQL预计，那有什么意义呢"><a href="#既然并不是所有的数据库都按照上述方式执行SQL预计，那有什么意义呢" class="headerlink" title="既然并不是所有的数据库都按照上述方式执行SQL预计，那有什么意义呢?"></a>既然并不是所有的数据库都按照上述方式执行SQL预计，那有什么意义呢?</h4><p>SQL语句的语法顺序和其执行顺序并不一致，这样我们就能避开一些一般性的错误，如果能记住SQL语句语法顺序和执行顺序的差异，那就已经可以轻松解决SQL的一些一般性问题了。</p>
+<p>如果一种语言被设计成语法顺序直接反应其语句的执行顺序，那么这种语言对程序员是十分友好的，这种编程语言层面的设计理念已经被微软应用到了 LINQ 语言中</p>
+</the></excerpt>
+      
+      
+        <div class="page-reward">
+          <p><a href="javascript:void(0)" onclick="dashangToggle()" class="dashang">赏</a></p>
+          <div class="hide_box"></div>
+          <div class="shang_box">
+            <a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()">×</a>
+            <div class="shang_tit">
+              <p>纯属好玩</p>
+            </div>
+            <div class="shang_payimg">
+              <img src="/img/alipayimg.jpg" alt="扫码支持" title="扫一扫" />
+            </div>
+              <div class="pay_explain">扫码打赏，你说多少就多少</div>
+            <div class="shang_payselect">
+              
+                <div class="pay_item checked" data-id="alipay">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/alipay.png" alt="支付宝" /></span>
+                </div>
+              
+              
+                <div class="pay_item" data-id="wechat">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/weixin.png" alt="微信" /></span>
+                </div>
+              
+            </div>
+            <div class="shang_info">
+              <p>打开<span id="shang_pay_txt">支付宝</span>扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+        </div>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
+        <script type="text/javascript">
+          $(".pay_item").click(function(){
+            $(this).addClass('checked').siblings('.pay_item').removeClass('checked');
+            var dataid=$(this).attr('data-id');
+            $(".shang_payimg img").attr("src","/img/"+dataid+"img.jpg");
+            $("#shang_pay_txt").text(dataid=="alipay"?"支付宝":"微信");
+          });
+          function dashangToggle(){
+            
+            $(".hide_box").fadeToggle();
+            $(".shang_box").fadeToggle();
+          }
+        </script>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2018/09/05/SQL语法顺序与解析顺序/">SQL语法顺序与解析顺序</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 Chris 的个人博客">Chris</a></p>
+        <p><span>发布时间:</span>2018年09月05日 - 17时14分</p>
+        <p><span>最后更新:</span>2018年09月26日 - 02时03分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2018/09/05/SQL语法顺序与解析顺序/" title="SQL语法顺序与解析顺序">http://yoursite.com/2018/09/05/SQL语法顺序与解析顺序/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2018/09/05/SQL语法顺序与解析顺序/　　作者: Chris" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/2018/09/08/Spring中名称空间p和c的使用/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Spring C/P 命名空间的使用和区别
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/09/01/你好，世界！/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">你好，世界！</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#SQL：结构化查询语言"><span class="toc-number">1.</span> <span class="toc-text">SQL：结构化查询语言</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SQL是一种声明式语言"><span class="toc-number">2.</span> <span class="toc-text">SQL是一种声明式语言</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#另外，最重要的是SQL的语法并不按照语法顺序执行的"><span class="toc-number">3.</span> <span class="toc-text">另外，最重要的是SQL的语法并不按照语法顺序执行的</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#关于SQL语句的执行顺序需要注意的地方"><span class="toc-number">4.</span> <span class="toc-text">关于SQL语句的执行顺序需要注意的地方</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#既然并不是所有的数据库都按照上述方式执行SQL预计，那有什么意义呢"><span class="toc-number">5.</span> <span class="toc-text">既然并不是所有的数据库都按照上述方式执行SQL预计，那有什么意义呢?</span></a></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+        <div id="gitments"></div>
+<script src="/js/gitment.browser.js"></script>
+<script>
+    var gitment = new Gitment({
+      id: window.location.pathname,
+      owner: 'luuman',
+      repo: 'luuman.github.io',
+      oauth: {
+        client_id: '',
+        client_secret: '',
+      },
+    })
+    gitment.render('gitments')
+</script>
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2018/09/08/Spring中名称空间p和c的使用/" title="上一篇: Spring C/P 命名空间的使用和区别">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2018/09/01/你好，世界！/" title="下一篇: 你好，世界！">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/09/24/Vue初学笔记/">Vue初学笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/21/重装系统后如何恢复Hexo博客/">重装系统后如何恢复Hexo博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/17/烟花/">if 如果 烟花</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/16/关于坚果pro2S/">关于这篇文章</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/10/struts2简介/">struts2简介</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/09/struct和typedef-struct/">struct和typedef struct</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/08/Spring中名称空间p和c的使用/">Spring C/P 命名空间的使用和区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/05/SQL语法顺序与解析顺序/">SQL语法顺序与解析顺序</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/你好，世界！/">你好，世界！</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/01/hello-world/">Hello World</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2018 Chris
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">spfk</a> by luuman
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >海贼到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 24;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>
