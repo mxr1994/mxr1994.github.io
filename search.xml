@@ -103,7 +103,7 @@
       <link href="/2018/09/10/struts2%E7%AE%80%E4%BB%8B/"/>
       <url>/2018/09/10/struts2%E7%AE%80%E4%BB%8B/</url>
       
-        <content type="html"><![CDATA[<excerpt in="" index="" |="" 首页摘要=""> <p>MVC框架原来比较流行的是struts1，和struts1一块儿的还有webwork。webwork技术上要比struts1要牛。但是由于struts1做的比较早，所以得到了大家伙儿的认可。所以用struts1的人还特别多。</p><a id="more"></a><the rest="" of="" contents="" |="" 余下全文=""><p>　　这是就产生了一种现象：技术差的反而还比较流行。这是完全有可能的现象，社会上也有这样的东西，产品做的很烂，但是不会妨碍他卖的很好。</p><p>　　而struts1和webwork之间也存在这样的问题，struts1的技术其实要比webwork要差一点。后来struts1这么想说我的技术老这么差下去，也不是一回事儿。早晚要被webwork给干掉,怎么办？</p><p><img src="/2018/09/10/struts2简介/1.jpg" alt="这可咋办？"></p><p><img src="/2018/09/10/struts2简介/1.jpg"></p><p>算了，咱们俩商量商量，合一块儿得了。可是一块儿怎么合呢？主要还是用webwork的技术，但是名字换成struts，这就是struts2。所以struts1和struts2的区别是比较大的。</p></the></excerpt>]]></content>
+        <content type="html"><![CDATA[<excerpt in="" index="" |="" 首页摘要=""> <p>MVC框架原来比较流行的是struts1，和struts1一块儿的还有webwork。webwork技术上要比struts1要牛。但是由于struts1做的比较早，所以得到了大家伙儿的认可。所以用struts1的人还特别多。</p><a id="more"></a><the rest="" of="" contents="" |="" 余下全文=""><p>　　这是就产生了一种现象：技术差的反而还比较流行。这是完全有可能的现象，社会上也有这样的东西，产品做的很烂，但是不会妨碍他卖的很好。</p><p>　　而struts1和webwork之间也存在这样的问题，struts1的技术其实要比webwork要差一点。后来struts1这么想说我的技术老这么差下去，也不是一回事儿。早晚要被webwork给干掉,怎么办？</p><p><img src="/2018/09/10/struts2简介/1.jpg" alt="这可咋办？"></p><p>算了，咱们俩商量商量，合一块儿得了。可是一块儿怎么合呢？主要还是用webwork的技术，但是名字换成struts，这就是struts2。所以struts1和struts2的区别是比较大的。</p></the></excerpt>]]></content>
       
       
       <categories>
