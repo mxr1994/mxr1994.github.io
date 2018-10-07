@@ -8,8 +8,25 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Fri, 05 Oct 2018 15:18:26 GMT</pubDate>
+    <pubDate>Sun, 07 Oct 2018 17:45:45 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>notepad++配置gcc和g++</title>
+      <link>https://mxr1994.github.io/2018/10/08/notepad-%E9%85%8D%E7%BD%AEgcc%E5%92%8Cg/</link>
+      <guid>https://mxr1994.github.io/2018/10/08/notepad-%E9%85%8D%E7%BD%AEgcc%E5%92%8Cg/</guid>
+      <pubDate>Sun, 07 Oct 2018 17:26:02 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;我们在编程的时候，IDE一直以来都是我们的主要工具，但是在学习阶段，很多人不太建议我们直接使用IDE，其实手写出来没一行代码，不依靠提示，还是很爽的，本人觉得最近重新捡起C和C++，在学习前期还是依靠Notepad++来进行编码，但是不想动不动调用黑窗口，所以折腾出来了这个篇文章。&lt;/p&gt;
+ &lt;excerpt in=&quot;&quot; index=&quot;&quot; |=&quot;&quot; 首页摘要=&quot;&quot;&gt;&lt;/excerpt&gt;
+      
+      </description>
+      
+      <content:encoded><![CDATA[<p>我们在编程的时候，IDE一直以来都是我们的主要工具，但是在学习阶段，很多人不太建议我们直接使用IDE，其实手写出来没一行代码，不依靠提示，还是很爽的，本人觉得最近重新捡起C和C++，在学习前期还是依靠Notepad++来进行编码，但是不想动不动调用黑窗口，所以折腾出来了这个篇文章。</p> <excerpt in="" index="" |="" 首页摘要=""> <a id="more"></a><the rest="" of="" contents="" |="" 余下全文=""><h3 id="文件准备"><a href="#文件准备" class="headerlink" title="文件准备"></a>文件准备</h3><ol><li>Notepade++</li><li>MinGW</li></ol><p>安装。。。。</p><h3 id="配置Notepad"><a href="#配置Notepad" class="headerlink" title="配置Notepad++"></a>配置Notepad++</h3><p>输入代码后，点击Notepad++运行，出现输入运行程序名，复制<strong>C语言的编译代码</strong>，如图所示，设置好你喜欢的快捷键。</p><p><img src="/2018/10/08/notepad-配置gcc和g/1.png" alt=""></p><p><img src="/2018/10/08/notepad-配置gcc和g/2.png" alt=""></p><p>运行代码同理！！！</p><p>接着就可以使用设置的快捷键编译了！</p><p><img src="/2018/10/08/notepad-配置gcc和g/3.png" alt=""></p><p>运行一样的！</p><p><img src="/2018/10/08/notepad-配置gcc和g/4.png" alt=""></p><p>最后附上C和C++的各种命令</p><p>C 编译器：</p><p>编译：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cmd /k gcc -g -W -Wall -o $(CURRENT_DIRECTORY)\$(NAME_PART).exe $(FULL_CURRENT_PATH) &amp; PAUSE &amp; EXIT</span><br></pre></td></tr></table></figure><p>C++编译器：</p><p>编译：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cmd /k g++ -g -W -Wall -o $(CURRENT_DIRECTORY)\$(NAME_PART).exe $(FULL_CURRENT_PATH) &amp; PAUSE &amp; EXIT</span><br></pre></td></tr></table></figure><p>运行：（二者的运行是一样的）</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cmd /k $(CURRENT_DIRECTORY)\$(NAME_PART).exe $(FULL_CURRENT_PATH &amp; PAUSE &amp; EXIT</span><br></pre></td></tr></table></figure><p>调试：（使用 gdb 调试）</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cmd /k gdb $(CURRENT_DIRECTORY)\$(NAME_PART).exe</span><br></pre></td></tr></table></figure><p>好了，基本就是这样的，对于 Java 原理上是一样的，有机会在继续折腾吧。</p><h3 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h3><p>最近思考了很多东西，想明白了一些问题，我喜欢什么？我想做什么？我的初心是什么？至少我还年轻，我还能走错一些路，我还有时间去弥补，加油！！！</p><p>为什么会有<strong>勿忘初心</strong>这句话？因为我们忘了初心，我希望有一天这句话能消失在我的字典中！！！</p><p>初心不泯，不负期待！！！</p></the></excerpt>]]></content:encoded>
+      
+      <comments>https://mxr1994.github.io/2018/10/08/notepad-%E9%85%8D%E7%BD%AEgcc%E5%92%8Cg/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>约翰·卡马克的编码规范</title>
